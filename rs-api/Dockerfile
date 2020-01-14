@@ -1,4 +1,4 @@
-FROM fropenbanking/openbanking-java-docker
+FROM openbankingtoolkit/openbanking-java-docker
 
 ARG JAR_FILE
 ARG VERSION_FILE

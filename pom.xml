@@ -30,6 +30,7 @@
         <ob-aspsp.version>1.0.34</ob-aspsp.version>
         <ob-clients.version>1.0.16</ob-clients.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
+        <write-text-files-maven-plugin.version>1.1</write-text-files-maven-plugin.version>
     </properties>
 
     <modules>
@@ -174,9 +175,11 @@
                     <version>${dockerfile-maven-plugin.version}</version>
                     <configuration>
                         <skipPush>false</skipPush>
-                        <repository>fropenbanking/cdr-${project.artifactId}</repository>
+                        <repository>openbankingtoolkit/cdr-${project.artifactId}</repository>
                         <buildArgs>
                             <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
+                            <SERVICE_FILE>target/SERVICE</SERVICE_FILE>
+                            <VERSION_FILE>target/VERSION</VERSION_FILE>
                         </buildArgs>
                     </configuration>
                     <executions>
@@ -184,10 +187,52 @@
                             <goals>
                                 <goal>build</goal>
                             </goals>
+                            <phase>install</phase>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>ru.yaal.maven</groupId>
+                    <artifactId>write-text-files-maven-plugin</artifactId>
+                    <version>${write-text-files-maven-plugin.version}</version>
+                    <configuration>
+                        <charset>UTF-8</charset>
+                        <files>
+                            <file>
+                                <path>${project.build.directory}/SERVICE</path>
+                                <lines>
+                                    <line>${project.name}</line>
+                                </lines>
+                            </file>
+                            <file>
+                                <path>${project.build.directory}/VERSION</path>
+                                <lines>
+                                    <line>${project.version}</line>
+                                </lines>
+                            </file>
+                        </files>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>write-text-files</id>
+                            <phase>prepare-package</phase>
+                            <goals>
+                                <goal>write-text-files</goal>
+                            </goals>
                         </execution>
                     </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${dockerfile-maven-plugin.version}</version>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

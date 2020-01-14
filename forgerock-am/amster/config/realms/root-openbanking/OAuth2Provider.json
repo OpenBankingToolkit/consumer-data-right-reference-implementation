@@ -1,7 +1,7 @@
 {
   "metadata" : {
     "realm" : "/openbanking",
-    "amsterVersion" : "6.5.1",
+    "amsterVersion" : "&{version}",
     "entityType" : "OAuth2Provider",
     "entityId" : "OAuth2Provider",
     "pathParams" : { }
@@ -26,7 +26,7 @@
       "oidcClaimsScript" : "9671d6f7-0dcf-4463-8718-d26fa6361306"
     },
     "advancedOAuth2Config" : {
-      "customLoginUrlTemplate" : "https://bank.&{ob.domain}/login?goto=${goto}<#if acrValues??>&acr_values=${acrValues}</#if><#if realm??>&realm=${realm}</#if><#if module??>&module=${module}</#if><#if service??>&service=${service}</#if><#if locale??>&locale=${locale}</#if><#if request??>&request=${request}</#if>",
+      "customLoginUrlTemplate" : "https://bank.&{ob.domain}:4201/login?goto=${goto}<#if acrValues??>&acr_values=${acrValues}</#if><#if realm??>&realm=${realm}</#if><#if module??>&module=${module}</#if><#if service??>&service=${service}</#if><#if locale??>&locale=${locale}</#if><#if request??>&request=${request}</#if>",
       "supportedScopes" : [ "openid", "payments", "fundsconfirmations", "accounts", "bank:accounts.basic:read", "bank:accounts.detail:read", "bank:transactions:read", "bank:payees:read", "bank:regular_payments:read", "common:customer.basic:read", "common:customer.detail:read" ],
       "codeVerifierEnforced" : "false",
       "tokenSigningAlgorithm" : "ES256",

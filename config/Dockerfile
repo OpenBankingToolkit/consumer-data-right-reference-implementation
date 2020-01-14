@@ -1,4 +1,4 @@
-FROM fropenbanking/openbanking-java-docker
+FROM openbankingtoolkit/openbanking-java-docker
 
 ARG JAR_FILE
 ARG VERSION_FILE
@@ -18,6 +18,6 @@ RUN rm -rf /var/lib/apt/lists/*  && \
 WORKDIR /opt/ob
 USER ob
 
-ADD default-config /opt/ob/forgerock-openbanking-config/default-config
+ADD default-config /opt/ob/config/default-config
 
 CMD ["sh", "-c", "java -jar /opt/ob/config-*.jar"]
