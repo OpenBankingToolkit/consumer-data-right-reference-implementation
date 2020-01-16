@@ -185,3 +185,29 @@ services:
       - "443:8443"
     networks:
       obref:
+  auth-ui:
+    image: openbankingtoolkit/openbanking-auth-ui
+    ports:
+      - "4203:80"
+    environment:
+      DOMAIN: .dev-ob.forgerock.financial
+      AUTHENTICATION_URL: https://am.dev-ob.forgerock.financial:8074
+      DIRECTORY_BACKEND_URL: https://service.directory.dev-ob.forgerock.financial:8074/directory-services
+  directory-ui:
+    image: openbankingtoolkit/openbanking-directory-ui
+    ports:
+      - "4202:80"
+    environment:
+      DOMAIN: .dev-ob.forgerock.financial
+      DIRECTORY_BACKEND_URL: https://service.directory.dev-ob.forgerock.financial:8074
+      AUTHENTICATION_URL: https://am.dev-ob.forgerock.financial:8074
+      ACCOUNT_REQUEST_BACKEND_URL: https://rs.aspsp.dev-ob.forgerock.financial:8074/api/account-requests
+  bank-ui:
+    image: openbankingtoolkit/openbanking-bank-ui
+    ports:
+      - "4201:80"
+    environment:
+      DOMAIN: .dev-ob.forgerock.financial
+      AUTHORIZATION_URL: https://as.aspsp.ui-dev.forgerock.financial
+      AUTHENTICATION_URL: https://am.dev-ob.forgerock.financial:8074
+      REMOVE_CONSENT_URL: https://rcs.aspsp.dev-ob.forgerock.financial:8074
