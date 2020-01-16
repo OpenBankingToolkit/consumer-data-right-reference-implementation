@@ -187,7 +187,6 @@
                             <goals>
                                 <goal>build</goal>
                             </goals>
-                            <phase>install</phase>
                             <configuration>
                                 <tag>${git.commit.id.abbrev}</tag>
                             </configuration>
@@ -197,7 +196,7 @@
                             <goals>
                                 <goal>tag</goal>
                             </goals>
-                            <phase>package</phase>
+                            <phase>install</phase>
                         </execution>
                         <execution>
                             <id>push-image-latest-tag</id>
