@@ -188,6 +188,23 @@
                                 <goal>build</goal>
                             </goals>
                             <phase>install</phase>
+                            <configuration>
+                                <tag>${git.commit.id.abbrev}</tag>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>tag-image-latest</id>
+                            <goals>
+                                <goal>tag</goal>
+                            </goals>
+                            <phase>package</phase>
+                        </execution>
+                        <execution>
+                            <id>push-image-latest-tag</id>
+                            <goals>
+                                <goal>push</goal>
+                            </goals>
+                            <phase>none</phase>
                         </execution>
                     </executions>
                 </plugin>
@@ -231,6 +248,22 @@
                 <version>${dockerfile-maven-plugin.version}</version>
                 <configuration>
                     <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>pl.project13.maven</groupId>
+                <artifactId>git-commit-id-plugin</artifactId>
+                <version>${git-commit-id-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>revision</goal>
+                        </goals>
+                        <phase>validate</phase>
+                    </execution>
+                </executions>
+                <configuration>
+                    <dotGitDirectory>${project.basedir}/.git</dotGitDirectory>
                 </configuration>
             </plugin>
         </plugins>

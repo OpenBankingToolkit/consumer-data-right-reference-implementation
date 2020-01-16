@@ -22,3 +22,5 @@ jobs:
       run: mvn -B install --file pom.xml
     - name: Push docker images
       run: mvn -B dockerfile:push
+    - name: Push docker images latest
+      run: mvn -B dockerfile:push@push-image-latest-tag
