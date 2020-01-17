@@ -49,6 +49,12 @@ You will need to install this extension as described in https://stackoverflow.co
 ## How to run the development environment
 
 ### Docker
+
+#### System Requirements
+
+If running on docker for mac you'll need to allocate at least 6GB of memory and 3 CPUs
+
+#### Setup
 1. If you have not already, register on https://backstage.forgerock.com/
 1. Download AM 6.5.1 war file from backstage. This *must* be version 6.5.1.0, both the evaluation and full editions will work.
     https://backstage.forgerock.com/downloads/browse/am/archive/productId:am/minorVersion:6.5/version:6.5.1/releaseType:full
