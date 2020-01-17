@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 networks:
   obref:
 services:
@@ -25,6 +25,12 @@ services:
       HOSTNAME: config
     networks:
       obref:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "http://localhost:8888/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   jwkms:
     container_name: jwkms
     image: openbankingtoolkit/cdr-jwkms
@@ -42,6 +48,12 @@ services:
       - ./jwkms/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
     networks:
       obref:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8097/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   directory-services:
     container_name: directory-services
     image: openbankingtoolkit/cdr-directory-services
@@ -59,6 +71,12 @@ services:
       - ./directory-services/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
     networks:
       obref:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8076/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   scgw:
     container_name: scgw
     image: openbankingtoolkit/cdr-scgw
@@ -89,6 +107,12 @@ services:
           - swagger.dev-ob.forgerock.financial
           - scgw.dev-ob.forgerock.financial
           - rcs.aspsp.dev-ob.forgerock.financial
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8074/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   as-api:
     container_name: as-api
     image: openbankingtoolkit/cdr-as-api
@@ -106,6 +130,12 @@ services:
       - ./as-api/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
     networks:
       obref:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8066/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   rs-api:
     container_name: rs-api
     image: openbankingtoolkit/cdr-rs-api
@@ -123,6 +153,12 @@ services:
       - ./rs-api/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
     networks:
       obref:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8094/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   rs-rcs:
     container_name: rs-rcs
     image: openbankingtoolkit/cdr-rs-rcs
@@ -140,6 +176,12 @@ services:
       - ./rs-rcs/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
     networks:
       obref:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8084/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   rs-store:
     container_name: rs-store
     image: openbankingtoolkit/cdr-rs-store
@@ -157,6 +199,12 @@ services:
       - ./rs-store/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
     networks:
       obref:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8086/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   rs-ui:
     container_name: rs-ui
     image: openbankingtoolkit/cdr-rs-ui
@@ -174,6 +222,12 @@ services:
       - ./rs-store/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
     networks:
       obref:
+    healthcheck:
+      test: ["CMD", "curl", "-f", "-k", "https://localhost:8092/actuator/health"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
   openam:
     build:
       context: .
