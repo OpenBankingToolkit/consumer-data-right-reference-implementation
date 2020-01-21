@@ -67,7 +67,7 @@ services:
       java_opts: -Xmx256m -XX:+UseConcMarkSweepGC -Dserver.port=8076 -Dam.internal-port=8443 -Dam.port=8074
       HOSTNAME: directory-services
       CONSOLE_LOG_PATTERN: "%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr([%X{traceId}]){green} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
-      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9097,server=y,suspend=n
+      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9076,server=y,suspend=n
     volumes:
       - ./directory-services/src/main/resources/unfiltered/keystore/keystore.jks:/opt/ob/config/keystore.jks:ro
       - ./directory-services/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
@@ -91,7 +91,7 @@ services:
       java_opts: -Xmx256m -XX:+UseConcMarkSweepGC -Dserver.port=8074 -Dam.internal-port=8443 -Dam.port=8074
       HOSTNAME: scgw
       CONSOLE_LOG_PATTERN: "%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr([%X{traceId}]){green} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
-      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9097,server=y,suspend=n
+      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9074,server=y,suspend=n
     volumes:
       - ./scgw/src/main/resources/unfiltered/keystore/keystore.jks:/opt/ob/config/keystore.jks:ro
       - ./scgw/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
@@ -128,7 +128,7 @@ services:
       java_opts: -Xmx256m -XX:+UseConcMarkSweepGC -Dserver.port=8066 -Dam.internal-port=8443 -Dam.port=8074
       HOSTNAME: as-api
       CONSOLE_LOG_PATTERN: "%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr([%X{traceId}]){green} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
-      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9097,server=y,suspend=n
+      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9066,server=y,suspend=n
     volumes:
       - ./as-api/src/main/resources/unfiltered/keystore/keystore.jks:/opt/ob/config/keystore.jks:ro
       - ./as-api/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
@@ -152,7 +152,7 @@ services:
       java_opts: -Xmx256m -XX:+UseConcMarkSweepGC -Dserver.port=8094 -Dam.internal-port=8443 -Dam.port=8074
       HOSTNAME: rs-api
       CONSOLE_LOG_PATTERN: "%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr([%X{traceId}]){green} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
-      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9097,server=y,suspend=n
+      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9094,server=y,suspend=n
     volumes:
       - ./rs-api/src/main/resources/unfiltered/keystore/keystore.jks:/opt/ob/config/keystore.jks:ro
       - ./rs-api/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
@@ -176,7 +176,7 @@ services:
       java_opts: -Xmx256m -XX:+UseConcMarkSweepGC -Dserver.port=8084 -Dam.internal-port=8443 -Dam.port=8074
       HOSTNAME: rs-rcs
       CONSOLE_LOG_PATTERN: "%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr([%X{traceId}]){green} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
-      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9097,server=y,suspend=n
+      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9084,server=y,suspend=n
     volumes:
       - ./rs-rcs/src/main/resources/unfiltered/keystore/keystore.jks:/opt/ob/config/keystore.jks:ro
       - ./rs-rcs/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
@@ -200,7 +200,7 @@ services:
       java_opts: -Xmx256m -XX:+UseConcMarkSweepGC -Dserver.port=8086
       HOSTNAME: rs-store
       CONSOLE_LOG_PATTERN: "%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr([%X{traceId}]){green} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
-      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9097,server=y,suspend=n
+      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9086,server=y,suspend=n
     volumes:
       - ./rs-store/src/main/resources/unfiltered/keystore/keystore.jks:/opt/ob/config/keystore.jks:ro
       - ./rs-store/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
@@ -224,7 +224,7 @@ services:
       java_opts: -Xmx256m -XX:+UseConcMarkSweepGC -Dserver.port=8092 -Dam.internal-port=8443
       HOSTNAME: rs-ui
       CONSOLE_LOG_PATTERN: "%clr(%d{${LOG_DATEFORMAT_PATTERN:-yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr([%X{traceId}]){green} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}"
-      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9097,server=y,suspend=n
+      JAVA_TOOL_OPTIONS: -agentlib:jdwp=transport=dt_socket,address=*:9092,server=y,suspend=n
     volumes:
       - ./rs-store/src/main/resources/unfiltered/keystore/keystore.jks:/opt/ob/config/keystore.jks:ro
       - ./rs-store/src/main/resources/unfiltered/keystore/truststore.jks:/etc/ssl/certs/java/cacerts
