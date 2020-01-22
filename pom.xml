@@ -20,7 +20,7 @@
         <nimbus-jose-jwt.version>8.4</nimbus-jose-jwt.version>
         <unirest-java.version>2.3.06</unirest-java.version>
         <logstash.version>6.3</logstash.version>
-        <spring-boot-admin.version>2.1.4</spring-boot-admin.version>
+        <spring-boot-admin.version>2.2.1</spring-boot-admin.version>
         <spring-security-multi-auth-starter.version>2.2.1.0.0.54</spring-security-multi-auth-starter.version>
         <ob-common.version>1.0.56</ob-common.version>
         <ob-analytics.version>1.1.29</ob-analytics.version>
