@@ -26,7 +26,7 @@
         <ob-analytics.version>1.1.29</ob-analytics.version>
         <ob-jwkms.version>1.1.59</ob-jwkms.version>
 
-        <ob-directory.version>1.4.60</ob-directory.version>
+        <ob-directory.version>1.4.64</ob-directory.version>
         <ob-aspsp.version>1.0.74</ob-aspsp.version>
         <ob-clients.version>1.0.31</ob-clients.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
