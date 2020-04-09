@@ -12,22 +12,21 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.5.RELEASE</version>
+        <version>2.2.6.RELEASE</version>
     </parent>
 
     <properties>
-        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
+        <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
         <nimbus-jose-jwt.version>8.4</nimbus-jose-jwt.version>
-        <unirest-java.version>2.3.06</unirest-java.version>
+        <unirest-java.version>3.7.01</unirest-java.version>
         <logstash.version>6.3</logstash.version>
-        <spring-boot-admin.version>2.1.4</spring-boot-admin.version>
-        <spring-security-multi-auth-starter.version>2.2.1.0.0.54</spring-security-multi-auth-starter.version>
+        <spring-boot-admin.version>2.2.2</spring-boot-admin.version>
+        <spring-security-multi-auth-starter.version>2.2.4.0.0.1</spring-security-multi-auth-starter.version>
         <ob-common.version>1.0.56</ob-common.version>
         <ob-analytics.version>1.1.29</ob-analytics.version>
         <ob-jwkms.version>1.1.67</ob-jwkms.version>
-
-        <ob-directory.version>1.4.64</ob-directory.version>
-        <ob-aspsp.version>1.0.74</ob-aspsp.version>
+        <ob-directory.version>1.4.69</ob-directory.version>
+        <ob-aspsp.version>1.0.77</ob-aspsp.version>
         <ob-clients.version>1.0.31</ob-clients.version>
         <dockerfile-maven-plugin.version>1.4.13</dockerfile-maven-plugin.version>
         <write-text-files-maven-plugin.version>1.1</write-text-files-maven-plugin.version>
